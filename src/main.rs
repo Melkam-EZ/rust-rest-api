@@ -1,3 +1,15 @@
+use std::net::SocketAddr;
+
+use tracing::{Level, info};
+use tracing_subscriber::FmtSubscriber;
+
+/** modules */
+mod app; // api instance
+mod config; // configurations
+mod database; // database connection
+
+
+#[tokio::main]
 fn main() {
      // Set up structured logging
   let subscriber = FmtSubscriber::builder()
