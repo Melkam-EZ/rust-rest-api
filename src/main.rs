@@ -5,7 +5,7 @@ use tracing_subscriber::FmtSubscriber;
 
 /** modules */
 mod app; // api instance
-mod config; // configurations
+mod configs; // configurations
 mod database; // database connection
 
 
