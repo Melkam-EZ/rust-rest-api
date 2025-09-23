@@ -2,8 +2,18 @@ use axum::{
   Router,
   http::StatusCode,
   response::{Html, IntoResponse},
-  routing::get,
+  routing::get
 };
+
+use crate::{config::AppConfig, database::initialize_dbs};
+use crate::{database::Databases, handlers};
+
+
+#[derive(Clone)]
+pub struct AppState {
+  pub env: String,
+  pub databases: Databases,
+}
 
 /** Initialise API */
 pub async fn initialize_app() -> Router {
