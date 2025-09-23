@@ -11,8 +11,8 @@ mod database; // database connection
 
 
 #[tokio::main]
-fn main() {
-     // Set up structured logging
+async fn main() {
+  // Set up structured logging
   let subscriber = FmtSubscriber::builder()
     .with_max_level(Level::INFO)
     .finish();
