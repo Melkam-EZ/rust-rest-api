@@ -5,10 +5,10 @@ use tracing_subscriber::FmtSubscriber;
 
 /** modules */
 mod app; // api instance
-mod dao; // api instance
 mod configs; // configurations
+mod dao; // data access objects
 mod database; // database connection
-
+mod handlers; // route handlers
 
 #[tokio::main]
 async fn main() {
@@ -22,7 +22,7 @@ async fn main() {
   let port = std::env::var("PORT")
     .ok()
     .and_then(|p| p.parse().ok())
-    .unwrap_or(3300);
+    .unwrap_or(3000);
   let address = SocketAddr::from(([127, 0, 0, 1], port));
 
   // Build app
