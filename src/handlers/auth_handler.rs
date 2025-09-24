@@ -8,8 +8,19 @@ pub struct LoginRequest {
 }
 
 /** Register user */
-pub async fn register() -> impl IntoResponse {
+pub async fn register(
+	State(state): State<AppState>,
+  Json(payload): Json<LoginRequest>,) -> impl IntoResponse {
   println!("->> {:<12} - login", "HANDLER");
+	  let db_name = state.db.name();
+  let env = state.env;
+
+  Json(json!({
+      "action": "register",
+      "email": payload.email,
+      "db": db_name,
+      "env": env,
+  }))
 }
 
 /** Login user */
