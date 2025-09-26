@@ -9,6 +9,7 @@ mod configs; // configurations
 mod dao; // data access objects
 mod database; // database connection
 mod handlers; // route handlers
+mod utils; // api utils
 
 #[tokio::main]
 async fn main() {
