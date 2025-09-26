@@ -24,7 +24,10 @@ pub async fn register(
 }
 
 /** Login user */
-pub async fn login() -> impl IntoResponse {
+pub async fn login(
+	 State(state): State<AppState>,
+  Json(payload): Json<LoginRequest>,
+) -> impl IntoResponse {
   println!("->> {:<12} - get_user_by_id", "HANDLER");
 
 }
